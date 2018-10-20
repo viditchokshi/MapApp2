@@ -1,6 +1,7 @@
 package com.example.viditchokshi.mapapp2;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +23,7 @@ public class Homepage extends AppCompatActivity {
     static ArrayList<LatLng> locations=new ArrayList<LatLng>();
     static ArrayAdapter arrayAdapter;
     static String username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +32,12 @@ public class Homepage extends AppCompatActivity {
         TextView Uname=findViewById(R.id.tvUsername);
         Uname.setText("Welcome "+username);
 
+
         ListView listView=findViewById(R.id.listView);
+
+
+        
+
 
 
         places.add(username);
@@ -49,5 +56,11 @@ public class Homepage extends AppCompatActivity {
 
             }
         });
+    }
+
+
+    public void gotoLocation(View view) {
+        Intent intent=new Intent(getApplicationContext(),allUsers.class);
+        startActivity(intent);
     }
 }

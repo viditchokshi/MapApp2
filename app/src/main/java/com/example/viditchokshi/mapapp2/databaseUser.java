@@ -1,6 +1,7 @@
 package com.example.viditchokshi.mapapp2;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -17,6 +18,16 @@ public class databaseUser extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+    }
+
+    public Cursor viewData()
+    {
+        SQLiteDatabase db=this.getReadableDatabase();
+        String query ="Select * from Location";
+        Cursor cursor=db.rawQuery(query,null);
+
+        return cursor;
 
     }
 }

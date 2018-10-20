@@ -25,4 +25,16 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="146dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvUsername"
+        android:layout_alignEnd="@+id/tvUsername"
+        android:layout_marginBottom="-63dp"
+        android:background="@color/colorAccent"
+        android:onClick="gotoLocation"
+        android:text="All users"
+        android:textColor="#ffffff" />
 </RelativeLayout>

@@ -58,6 +58,7 @@ public class map extends FragmentActivity implements OnMapReadyCallback, GoogleM
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        Uname= getIntent().getStringExtra("username");
     }
 
 
@@ -68,12 +69,12 @@ public class map extends FragmentActivity implements OnMapReadyCallback, GoogleM
         Intent intent=getIntent();
         if(intent.getIntExtra("placeNumber",0)==0)
         {
-            //zoom to user
+
             locationManager=(LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
             locationListener=new LocationListener() {
                 @Override
                 public void onLocationChanged(Location location) {
-                    //centerMap(location,Uname);
+                    centerMap(location,"new location");
                 }
 
                 @Override
@@ -111,7 +112,7 @@ public class map extends FragmentActivity implements OnMapReadyCallback, GoogleM
             placeLocation.setLatitude(Homepage.locations.get(intent.getIntExtra("placeNumber",0)).latitude);
             placeLocation.setLongitude(Homepage.locations.get(intent.getIntExtra("placeNumber",0)).longitude);
 
-            //centerMap(placeLocation,Uname);
+            centerMap(placeLocation,Uname);
 
         }
 
@@ -120,8 +121,8 @@ public class map extends FragmentActivity implements OnMapReadyCallback, GoogleM
 
     @Override
     public void onMapLongClick(LatLng latLng) {
-        Uname= getIntent().getStringExtra("username");
-        mMap.addMarker(new MarkerOptions().position(latLng).title(Uname));
+
+        mMap.addMarker(new MarkerOptions().position(latLng).title("new location"));
         Homepage.locations.add(latLng);
         Homepage.arrayAdapter.notifyDataSetChanged();
 
