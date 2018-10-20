@@ -1,13 +1,18 @@
 package com.example.viditchokshi.mapapp2;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import static com.example.viditchokshi.mapapp2.Homepage.username;
 
 public class allUsers extends AppCompatActivity {
     ArrayAdapter adapter;
@@ -22,6 +27,8 @@ public class allUsers extends AppCompatActivity {
         listItem=new ArrayList<>();
         userLocation=findViewById(R.id.locationlist);
         viewData();
+
+
     }
 
     private void viewData() {
@@ -32,6 +39,7 @@ public class allUsers extends AppCompatActivity {
         }
         else
         {
+
             while(cursor.moveToNext())
             {
                 listItem.add(cursor.getString(0)+","+cursor.getString(1)+","+cursor.getString(2));
@@ -39,6 +47,9 @@ public class allUsers extends AppCompatActivity {
             }
             adapter=new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,listItem);
             userLocation.setAdapter(adapter);
+
+            
+
         }
     }
 

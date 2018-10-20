@@ -34,7 +34,7 @@ public class map extends FragmentActivity implements OnMapReadyCallback, GoogleM
     {
         LatLng userLocation=new LatLng(location.getLatitude(),location.getLongitude());
         mMap.addMarker(new MarkerOptions().position(userLocation).title(title));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation,12));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation,8));
     }
 
     @Override
@@ -74,7 +74,7 @@ public class map extends FragmentActivity implements OnMapReadyCallback, GoogleM
             locationListener=new LocationListener() {
                 @Override
                 public void onLocationChanged(Location location) {
-                    centerMap(location,"new location");
+                   // centerMap(location,"new location");
                 }
 
                 @Override
@@ -98,7 +98,7 @@ public class map extends FragmentActivity implements OnMapReadyCallback, GoogleM
 
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,locationListener);
                 Location lastLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                centerMap(lastLocation,Uname);
+                //centerMap(lastLocation,Uname);
             }
             else
             {
