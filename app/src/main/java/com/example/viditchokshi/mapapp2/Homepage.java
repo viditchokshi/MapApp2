@@ -36,11 +36,7 @@ public class Homepage extends AppCompatActivity {
         ListView listView=findViewById(R.id.listView);
 
 
-        
-
-
-
-        places.add(username);
+        //places.add(username);
         locations.add(new LatLng(0,0));
         arrayAdapter=new ArrayAdapter(this,android.R.layout.simple_list_item_1,locations);
         listView.setAdapter(arrayAdapter);
