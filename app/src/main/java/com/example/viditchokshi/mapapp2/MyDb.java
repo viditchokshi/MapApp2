@@ -34,14 +34,8 @@ public class MyDb extends SQLiteOpenHelper {
         if(ins==-1) return false;
         else return true;
 
-    }
+    }*/
 
-    //Check if email(user) exixts
-    public boolean chkemail(String username)
-    {
-        SQLiteDatabase db=getReadableDatabase();
-        Cursor cursor= db.rawQuery("Select * from User where Username=?",new String[]{username});
-        if(cursor.getCount()>0) return true;
-        else return false;
-    } */
+    //Check if user exixts
+
 }

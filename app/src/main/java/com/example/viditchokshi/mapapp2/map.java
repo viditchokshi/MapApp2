@@ -130,14 +130,24 @@ public class map extends FragmentActivity implements OnMapReadyCallback, GoogleM
 
         databaseUser dbUser=new databaseUser(this);
         SQLiteDatabase db2= dbUser.getWritableDatabase();
+
         ContentValues values2=new ContentValues();
 
         values2.put("Username",Uname);
         values2.put("Longitude",latLng.longitude);
         values2.put("Latitude",latLng.latitude);
 
-        db2.insert("Location",null,values2);
-        Toast.makeText(this,"Location Saved and in database!",Toast.LENGTH_LONG).show();
+        boolean isUpdate=dbUser.chkuser(Uname);
+        if(isUpdate==true)
+        {
+            db2.update("Location",values2,"Username=?",new String[]{Uname});
+        }
+        else
+        {
+            db2.insert("Location",null,values2);
+            Toast.makeText(this,"Location Saved and in database!",Toast.LENGTH_LONG).show();
+
+        }
 
     }
 }

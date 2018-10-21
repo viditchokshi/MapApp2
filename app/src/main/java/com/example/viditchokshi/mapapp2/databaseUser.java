@@ -30,5 +30,13 @@ public class databaseUser extends SQLiteOpenHelper {
         return cursor;
 
     }
+
+    public boolean chkuser(String username)
+    {
+        SQLiteDatabase db=getReadableDatabase();
+        Cursor cursor= db.rawQuery("Select * from Location where Username=?",new String[]{username});
+        if(cursor.getCount()>0) return true;
+        else return false;
+    }
 }
 
